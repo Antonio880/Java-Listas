@@ -13,28 +13,31 @@ public class Exerc06 {
 		int i = ler.nextInt();
 		System.out.println("Digite a quantidade de Colunas");
 		int j = ler.nextInt();
-		int numeros[][];
-		numeros = new int[i][j];
-		boolean teste = true;
-		System.out.println("Preencha os dados da matriz");
-		for(int contLinha = 0;contLinha < i;contLinha++) {
-			for(int contColuna = 0; contColuna < j; contColuna++) {
-				System.out.println("Linha: " + (contLinha + 1) + "\nColuna: " + (contColuna + 1));
-				numeros[contLinha][contColuna] = ler.nextInt();
-			}
-		}	
-		for(int contLinha = 0;contLinha < i; contLinha++) {
-			for(int contColuna = 0; contColuna < j; contColuna++)
-				if(numeros[contLinha][contColuna] != numeros[contColuna][contLinha]) {
-					teste = false;
+		if(i == j) {
+			int numeros[][];
+			numeros = new int[i][j];
+			boolean teste = true;
+			System.out.println("Preencha os dados da matriz");
+			for(int contLinha = 0;contLinha < i;contLinha++) {
+				for(int contColuna = 0; contColuna < j; contColuna++) {
+					System.out.println("Linha: " + (contLinha + 1) + "\nColuna: " + (contColuna + 1));
+					numeros[contLinha][contColuna] = ler.nextInt();
 				}
-		}
-		if(teste == false) {
-			System.out.println("A matriz feita nao eh simetrica");
+			}	
+			for(int contLinha = 0;contLinha < i; contLinha++) {
+				for(int contColuna = 0; contColuna < j; contColuna++)
+					if(numeros[contLinha][contColuna] != numeros[contColuna][contLinha]) {
+						teste = false;
+					}
+			}
+			if(teste == false) {
+				System.out.println("A matriz feita nao eh simetrica");
+			}else {
+				System.out.println("A matriz feita eh simetrica");
+			}
 		}else {
-			System.out.println("A matriz feita eh simetrica");
+			System.out.println("Para fazer esta verificação é necessário que a matriz seja quadrada!");
 		}
-
 		
 		ler.close();
 	}
